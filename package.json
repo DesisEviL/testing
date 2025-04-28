@@ -1,0 +1,17 @@
+{
+  "name": "phone_backend",
+  "version": "1.0.0",
+  "description": "Testing Backend for my phone2 web app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js"
+  },
+  "author": "Ahmed",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
