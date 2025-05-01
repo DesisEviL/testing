@@ -1,12 +1,16 @@
 //imports
 const express = require('express');
 const app = express()
-
 const cors = require('cors')
-app.use(cors())
+require('dotenv').config()
 
+const Person = require('./models/person')
+
+
+app.use(cors())
 app.use(express.json())
 app.use(express.static('dist'))
+
 
 
 // Hard coded data for testing
@@ -44,7 +48,9 @@ app.get('/info', (request, response) => {
 
 //Get all persons
 app.get('/api/persons', (request, response) => {
-    response.json(persons)
+    Person.find({}).then(persons => {
+      response.json(persons)
+    })
 })
 
 //Get person by id
@@ -132,7 +138,7 @@ app.use(unknownEndpoint)
 
 
 //PORT
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT} for testing`)
